@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f0eb;
+    color: #333;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 60px;
+}
+
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #5d4037;
+    color: white;
+    z-index: 10;
+}
+
+.top-bar input {
+    width: 300px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 14px;
+}
+
+
+.sidebar {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100px;
+    background: #e8d8c9;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.sidebar .menu-item {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding: 10px;
+    background: #5d4037;
+    color: white;
+    width: 60px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+
+.main-content {
+    margin-left: 100px;
+    padding: 20px;
+}
+
+
+.coffee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+
+.coffee-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border: 2px solid transparent; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.coffee-card.selected {
+    border-color: #5d4037;
+    box-shadow: 0 4px 12px rgba(93, 64, 55, 0.3);
+}
+
+.coffee-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.coffee-card h2 {
+    font-size: 1.2rem;
+    margin: 8px 0 5px;
+}
+
+.coffee-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
