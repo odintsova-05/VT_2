@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кофе на любой вкус</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+<body>
+    <div class="app-container">
+        <header class="top-bar">
+            <h1 class="logo">Coffee</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Найти напиток..." />
+            </div>
+        
+        </header>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="menu-item active" data-type="all">Все</div>
+            <div class="menu-item" data-type="espresso">Эспрессо</div>
+            <div class="menu-item" data-type="latte">Латте</div>
+            <div class="menu-item" data-type="cappuccino">Капучино</div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page" id="listPage">
+                <div class="coffee-grid" id="coffeeGrid"></div>
+            </div>
+
+
+            <div class="page" id="detailPage" style="display: none;">
+                <button class="back-btn" id="backBtn">← Назад</button>
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img id="detailImg" src="" alt="Напиток" />
+                    </div>
+                    <div class="detail-options">
+                        <h2 id="detailName"></h2>
+                        <p>Базовая цена: <span id="basePrice"></span> ₽</p>
+
+                        <div class="option-group">
+                            <h3>Размер</h3>
+                            <div class="options" id="sizeOptions"></div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Молоко</h3>
+                            <div class="options" id="milkOptions"></div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Сахар</h3>
+                            <div class="options" id="sugarOptions"></div>
+                        </div>
+
+                        <div class="quantity-control">
+                            <button id="decQty">−</button>
+                            <span id="qtyDisplay">1</span>
+                            <button id="incQty">+</button>
+                        </div>
+
+                        <p class="total-price">
+                            Итого: <strong id="totalDetailPrice">0</strong> ₽
+                        </p>
+
+                        <button class="add-to-cart" id="addToCartBtn">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        
+
+    <script src="code.js"></script>
+</body>
+</html>
