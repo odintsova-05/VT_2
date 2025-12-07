@@ -5,73 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кофе на любой вкус</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
 <body>
     <div class="app-container">
         <header class="top-bar">
-            <h1 class="logo">Coffee</h1>
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Найти напиток..." />
-            </div>
-        
+            <h1 class="logo">Coffee shop</h1>
+            <input type="text" placeholder="Найти напиток..." />
+            <div>🛒 <span>0</span></div>
         </header>
-
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar">
             <div class="menu-item active" data-type="all">Все</div>
             <div class="menu-item" data-type="espresso">Эспрессо</div>
             <div class="menu-item" data-type="latte">Латте</div>
             <div class="menu-item" data-type="cappuccino">Капучино</div>
+            <div class="menu-item" data-type="americano">Американо</div>
+            <div class="menu-item" data-type="raf">Раф</div>
+            <div class="menu-item" data-type="macciato">Маккачино</div>
         </aside>
 
         <main class="main-content">
-            <div class="page" id="listPage">
-                <div class="coffee-grid" id="coffeeGrid"></div>
-            </div>
+            <div class="coffee-grid">
+                <div class="coffee-card" data-type="espresso"><img src="" alt="Espresso 1"><h2>Classic Espresso</h2><p>Эспрессо • 85 ₽</p></div>
+                <div class="coffee-card" data-type="espresso"><img src="" alt="Espresso 2"><h2>Double Shot</h2><p>Эспрессо • 90 ₽</p></div>
+                <div class="coffee-card" data-type="espresso"><img src="" alt="Espresso 3"><h2>Lemon Espresso</h2><p>Эспрессо • 88 ₽</p></div>
+                <div class="coffee-card" data-type="espresso"><img src="" alt="Espresso 4"><h2>Vanilla Shot</h2><p>Эспрессо • 92 ₽</p></div>
+                <div class="coffee-card" data-type="espresso"><img src="" alt="Espresso 5"><h2>Caramel Espresso</h2><p>Эспрессо • 95 ₽</p></div>
+            
+                
+                <div class="coffee-card" data-type="latte"><img src="" alt="Latte 6"><h2>Almond Bliss</h2><p>Латте • 98 ₽</p></div>
+                <div class="coffee-card" data-type="latte"><img src="" alt="Latte 7"><h2>Blueberry Latte</h2><p>Латте • 103 ₽</p></div>
+                <div class="coffee-card" data-type="latte"><img src="" alt="Latte 8"><h2>Maple Pecan</h2><p>Латте • 105 ₽</p></div>
+                <div class="coffee-card" data-type="latte"><img src="" alt="Latte 9"><h2>White Chocolate</h2><p>Латте • 108 ₽</p></div>
+                <div class="coffee-card" data-type="latte"><img src="" alt="Latte 10"><h2>Sea Salt Caramel</h2><p>Латте • 106 ₽</p></div>
 
+               
+                <div class="coffee-card" data-type="cappuccino"><img src="" alt="Cappuccino 6"><h2>Vanilla Cloud</h2><p>Капучино • 106 ₽</p></div>
+                <div class="coffee-card" data-type="cappuccino"><img src="" alt="Cappuccino 7"><h2>Caramel Top</h2><p>Капучино • 111 ₽</p></div>
+                <div class="coffee-card" data-type="cappuccino"><img src="" alt="Cappuccino 8"><h2>Nutty Cappuccino</h2><p>Капучино • 108 ₽</p></div>
+                <div class="coffee-card" data-type="cappuccino"><img src="" alt="Cappuccino 9"><h2>Spiced Cappuccino</h2><p>Капучино • 104 ₽</p></div>
+                <div class="coffee-card" data-type="cappuccino"><img src="" alt="Cappuccino 10"><h2>Espresso Cloud</h2><p>Капучино • 113 ₽</p></div>
 
-            <div class="page" id="detailPage" style="display: none;">
-                <button class="back-btn" id="backBtn">← Назад</button>
-                <div class="detail-container">
-                    <div class="detail-image">
-                        <img id="detailImg" src="" alt="Напиток" />
-                    </div>
-                    <div class="detail-options">
-                        <h2 id="detailName"></h2>
-                        <p>Базовая цена: <span id="basePrice"></span> ₽</p>
+                
+                <div class="coffee-card" data-type="americano"><img src="" alt="Americano 6"><h2>Cherry Americano</h2><p>Американо • 81 ₽</p></div>
+                <div class="coffee-card" data-type="americano"><img src="" alt="Americano 7"><h2>Ginger Shot</h2><p>Американо • 83 ₽</p></div>
+                <div class="coffee-card" data-type="americano"><img src="" alt="Americano 8"><h2>Orange Americano</h2><p>Американо • 77 ₽</p></div>
+                <div class="coffee-card" data-type="americano"><img src="" alt="Americano 9"><h2>Smoky Americano</h2><p>Американо • 84 ₽</p></div>
+                <div class="coffee-card" data-type="americano"><img src="" alt="Americano 10"><h2>Light Roast Classic</h2><p>Американо • 76 ₽</p></div>
 
-                        <div class="option-group">
-                            <h3>Размер</h3>
-                            <div class="options" id="sizeOptions"></div>
-                        </div>
+               
+                <div class="coffee-card" data-type="raf"><img src="" alt="Raf 7"><h2>Lavender Raf</h2><p>Раф • 127 ₽</p></div>
+                <div class="coffee-card" data-type="raf"><img src="" alt="Raf 8"><h2>Maple Raf</h2><p>Раф • 129 ₽</p></div>
+                <div class="coffee-card" data-type="raf"><img src="" alt="Raf 9"><h2>Almond Raf</h2><p>Раф • 124 ₽</p></div>
+                <div class="coffee-card" data-type="raf"><img src="" alt="Raf 10"><h2>Dark Chocolate Raf</h2><p>Раф • 132 ₽</p></div>
 
-                        <div class="option-group">
-                            <h3>Молоко</h3>
-                            <div class="options" id="milkOptions"></div>
-                        </div>
-
-                        <div class="option-group">
-                            <h3>Сахар</h3>
-                            <div class="options" id="sugarOptions"></div>
-                        </div>
-
-                        <div class="quantity-control">
-                            <button id="decQty">−</button>
-                            <span id="qtyDisplay">1</span>
-                            <button id="incQty">+</button>
-                        </div>
-
-                        <p class="total-price">
-                            Итого: <strong id="totalDetailPrice">0</strong> ₽
-                        </p>
-
-                        <button class="add-to-cart" id="addToCartBtn">Добавить в корзину</button>
-                    </div>
-                </div>
+              
+                <div class="coffee-card" data-type="mokkachino"><img src="" alt="mokkachino 7"><h2>Blueberry Macciato</h2><p>Макиато • 119 ₽</p></div>
+                <div class="coffee-card" data-type="mokkachino"><img src="" alt="mokkachino 8"><h2>Maple Drizzle</h2><p>Макиато • 121 ₽</p></div>
+                <div class="coffee-card" data-type="mokkachino"><img src="" alt="mokkachino 9"><h2>Sea Salt Caramel</h2><p>Макиато • 123 ₽</p></div>
+                <div class="coffee-card" data-type="mokkachino"><img src="" alt="mokkachino10"><h2>White Chocolate</h2><p>Макиато • 125 ₽</p></div>
             </div>
         </main>
-
-        
-
-    <script src="code.js"></script>
+    </div>
 </body>
 </html>
