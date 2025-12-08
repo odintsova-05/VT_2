@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +17,6 @@ body {
     position: relative;
     padding-top: 60px;
 }
-
 
 .top-bar {
     position: fixed;
@@ -40,7 +40,6 @@ body {
     font-size: 14px;
 }
 
-
 .sidebar {
     position: absolute;
     top: 80px;
@@ -54,7 +53,7 @@ body {
     gap: 15px;
 }
 
-.sidebar .menu-item {
+.menu-item {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     padding: 10px;
@@ -64,14 +63,19 @@ body {
     text-align: center;
     border-radius: 8px;
     font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+.menu-item.active {
+    background: white;
+    color: #5d4037;
+}
 
 .main-content {
     margin-left: 100px;
     padding: 20px;
 }
-
 
 .coffee-grid {
     display: grid;
@@ -80,14 +84,13 @@ body {
     justify-content: center;
 }
 
-
 .coffee-card {
     background: white;
     border-radius: 15px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -113,4 +116,60 @@ body {
 .coffee-card p {
     color: #666;
     font-size: 0.95rem;
+}
+
+.drink-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-btn {
+    margin-left: 10px;
+    padding: 5px 12px;
+    background: #5d4037;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-btn:hover {
+    background: #795548;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px 10px;
+    }
+
+    .top-bar input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .coffee-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }
