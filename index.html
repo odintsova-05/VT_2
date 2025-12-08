@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кофе на любой вкус</title>
     <link rel="stylesheet" href="style.css" />
+   
 </head>
 <body>
     <div class="app-container">
         <header class="top-bar">
-            <h1 class="logo">Coffee shop</h1>
-            <input type="text" placeholder="Найти напиток..." />
-            <div>🛒 <span>0</span></div>
-        </header>
+    <div style="width: 120px;"></div> 
+    <input type="text" id="searchInput" placeholder="Найти напиток..." />
+    <div class="cart-btn" id="cartBtn">🛒 <span id="cartBadge">0</span></div>
+</header>
         <aside class="sidebar">
             <div class="menu-item active" data-type="all">Все</div>
             <div class="menu-item" data-type="espresso">Эспрессо</div>
@@ -23,40 +24,94 @@
         </aside>
 
         <main class="main-content">
-            <div class="coffee-grid">
-                <div class="coffee-card" data-type="espresso"><img src="https://media.timeout.com/images/103603109/750/422/image.jpg" alt="Espresso 1"><h2>Classic Espresso</h2><p>Эспрессо • 85 ₽</p></div>
-                <div class="coffee-card" data-type="espresso"><img src="https://o.quizlet.com/1GIdEHyhoCVC11n8OlopDQ.jpg" alt="Espresso 2"><h2>Double Shot</h2><p>Эспрессо • 90 ₽</p></div>
-                <div class="coffee-card" data-type="espresso"><img src="https://yaart-web-alice-images.s3.yandex.net/0b000efad3c811f0b682461306501bff:1" alt="Espresso 3"><h2>Lemon Espresso</h2><p>Эспрессо • 88 ₽</p></div>
-                <div class="coffee-card" data-type="espresso"><img src="https://i.pinimg.com/736x/5e/65/d4/5e65d4beaaebcd19f31137d0ada2c0af.jpg" alt="Espresso 4"><h2>Vanilla Shot</h2><p>Эспрессо • 92 ₽</p></div>
-                <div class="coffee-card" data-type="espresso"><img src="https://yaart-web-alice-images.s3.yandex.net/47505214d3c811f085a88ea32b81b566:1" alt="Espresso 5"><h2>Caramel Espresso</h2><p>Эспрессо • 95 ₽</p></div>
-            
-                
-                <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/originals/70/81/fb/7081fbdf8079d932936c9182d582afe6.jpg" alt="Latte 6"><h2>Almond Bliss</h2><p>Латте • 98 ₽</p></div>
-                <div class="coffee-card" data-type="latte"><img src="https://solnechnaya-polyana.qr-cafe.ru/imagebase/5adeb7ff1d8786bcacb6b4b142aa8f4c.jpeg" alt="Latte 7"><h2>Blueberry Latte</h2><p>Латте • 103 ₽</p></div>
-                <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/736x/60/5b/b4/605bb4597e4fded44b958d08408d5ca9.jpg" alt="Latte 8"><h2>Maple Pecan</h2><p>Латте • 105 ₽</p></div>
-                <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/474x/38/43/8a/38438a72f7204d51ebb32c3500b153f1.jpg" alt="Latte 9"><h2>White Chocolate</h2><p>Латте • 108 ₽</p></div>
-                <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/474x/b8/4c/9d/b84c9db0910aa8247d79b69a4ecd1438.jpg?nii=t" alt="Latte 10"><h2>Sea Salt Caramel</h2><p>Латте • 106 ₽</p></div>
+            <div class="page" id="listPage">
+                    <div class="coffee-card" data-type="espresso"><img src="https://media.timeout.com/images/103603109/750/422/image.jpg" alt="Classic Espresso"><h2>Classic Espresso</h2><p>Эспрессо • 85 ₽</p></div>
+                    <div class="coffee-card" data-type="espresso"><img src="https://o.quizlet.com/1GIdEHyhoCVC11n8OlopDQ.jpg" alt="Double Shot"><h2>Double Shot</h2><p>Эспрессо • 90 ₽</p></div>
+                    <div class="coffee-card" data-type="espresso"><img src="https://yaart-web-alice-images.s3.yandex.net/0b000efad3c811f0b682461306501bff:1" alt="Lemon Espresso"><h2>Lemon Espresso</h2><p>Эспрессо • 88 ₽</p></div>
+                    <div class="coffee-card" data-type="espresso"><img src="https://i.pinimg.com/736x/5e/65/d4/5e65d4beaaebcd19f31137d0ada2c0af.jpg" alt="Vanilla Shot"><h2>Vanilla Shot</h2><p>Эспрессо • 92 ₽</p></div>
+                    <div class="coffee-card" data-type="espresso"><img src="https://yaart-web-alice-images.s3.yandex.net/47505214d3c811f085a88ea32b81b566:1" alt="Caramel Espresso"><h2>Caramel Espresso</h2><p>Эспрессо • 95 ₽</p></div>
+                    <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/originals/70/81/fb/7081fbdf8079d932936c9182d582afe6.jpg" alt="Almond Bliss"><h2>Almond Bliss</h2><p>Латте • 98 ₽</p></div>
+                    <div class="coffee-card" data-type="latte"><img src="https://solnechnaya-polyana.qr-cafe.ru/imagebase/5adeb7ff1d8786bcacb6b4b142aa8f4c.jpeg" alt="Blueberry Latte"><h2>Blueberry Latte</h2><p>Латте • 103 ₽</p></div>
+                    <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/736x/60/5b/b4/605bb4597e4fded44b958d08408d5ca9.jpg" alt="Maple Pecan"><h2>Maple Pecan</h2><p>Латте • 105 ₽</p></div>
+                    <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/474x/38/43/8a/38438a72f7204d51ebb32c3500b153f1.jpg" alt="White Chocolate"><h2>White Chocolate</h2><p>Латте • 108 ₽</p></div>
+                    <div class="coffee-card" data-type="latte"><img src="https://i.pinimg.com/474x/b8/4c/9d/b84c9db0910aa8247d79b69a4ecd1438.jpg?nii=t" alt="Sea Salt Caramel"><h2>Sea Salt Caramel</h2><p>Латте • 106 ₽</p></div>
+                    <div class="coffee-card" data-type="cappuccino"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Ballerina_Cappuccina.png" alt="Vanilla Cloud"><h2>Vanilla Cloud</h2><p>Капучино • 106 ₽</p></div>
+                    <div class="coffee-card" data-type="cappuccino"><img src="https://avatars.mds.yandex.net/i?id=d2b3a6c07c27e7c41e221ca6ae2028ed_l-16320731-images-thumbs&n=13" alt="Caramel Top"><h2>Caramel Top</h2><p>Капучино • 111 ₽</p></div>
+                    <div class="coffee-card" data-type="cappuccino"><img src="https://main-cdn.sbermegamarket.ru/mid9/hlr-system/-18/777/099/191/511/50/100074693799b0.jpg" alt="Nutty Cappuccino"><h2>Nutty Cappuccino</h2><p>Капучино • 108 ₽</p></div>
+                    <div class="coffee-card" data-type="cappuccino"><img src="https://cdn.lifehacker.ru/wp-content/uploads/2025/10/IMG_4654_1760428987-e1760429013835.jpg" alt="Spiced Cappuccino"><h2>Spiced Cappuccino</h2><p>Капучино • 104 ₽</p></div>
+                    <div class="coffee-card" data-type="cappuccino"><img src="https://i.pinimg.com/originals/b3/02/07/b3020720caef3e806115c550dc77ce03.webp" alt="Espresso Cloud"><h2>Espresso Cloud</h2><p>Капучино • 113 ₽</p></div>
+                    <div class="coffee-card" data-type="raf"><img src="https://jz9czo0xs6.ru.scalesta-cdn.com/CZbcl_YPJ1oiQt01-pvrlur0Eus=/filters:format(webp)/https%3A%2F%2Fcomplexbar.ru%2Fimages%2Fblog%2F266%2FChai_latte.jpg" alt="Lavender Raf"><h2>Lavender Raf</h2><p>Раф • 127 ₽</p></div>
+                    <div class="coffee-card" data-type="raf"><img src="https://www.pahlavaperm.ru/content/files/catalog1/source/13_ICE_raf_klubnichnyj_1682452906.jpg" alt="Maple Raf"><h2>Maple Raf</h2><p>Раф • 129 ₽</p></div>
+                    <div class="coffee-card" data-type="raf"><img src="https://мояоптима.рф/upload/resize_cache/iblock/fa2/430_430_1/ny7va14nsclskg4zey2rqlhzwpgth9xk.jpg" alt="Нескафе Raf"><h2>Нескафе Raf</h2><p>Раф • 124 ₽</p></div>
+                    <div class="coffee-card" data-type="raf"><img src="https://tykva-cafe.ru/wp-content/uploads/2022/10/raf-kofe.jpg" alt="Dark Chocolate Raf"><h2>Dark Chocolate Raf</h2><p>Раф • 132 ₽</p></div>
+                    <div class="coffee-card" data-type="mokkachino"><img src="https://i.pinimg.com/originals/3d/12/79/3d1279c41301962c892f909529e82a82.jpg" alt="Blueberry Macciato"><h2>Blueberry Macciato</h2><p>Макиато • 119 ₽</p></div>
+                    <div class="coffee-card" data-type="mokkachino"><img src="https://coffeesolo.ru/wp-content/uploads/2022/12/44301-768x768.png" alt="Maple Drizzle"><h2>Maple Drizzle</h2><p>Макиато • 121 ₽</p></div>
+                    <div class="coffee-card" data-type="mokkachino"><img src="https://static.vinwonders.com/production/Vietnamese-coffee-beans-5.jpg" alt="Sea Salt Caramel"><h2>Sea Salt Caramel</h2><p>Макиато • 123 ₽</p></div>
+                    <div class="coffee-card" data-type="mokkachino"><img src="https://img.ixbt.site/live/images/original/32/75/48/2024/10/17/a30670d324.jpg" alt="White Chocolate"><h2>White Chocolate</h2><p>Макиато • 125 ₽</p></div>
+                </div>
+            </div>
 
-               
-                <div class="coffee-card" data-type="cappuccino"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Ballerina_Cappuccina.png" alt="Cappuccino 6"><h2>Vanilla Cloud</h2><p>Капучино • 106 ₽</p></div>
-                <div class="coffee-card" data-type="cappuccino"><img src="https://avatars.mds.yandex.net/i?id=d2b3a6c07c27e7c41e221ca6ae2028ed_l-16320731-images-thumbs&n=13" alt="Cappuccino 7"><h2>Caramel Top</h2><p>Капучино • 111 ₽</p></div>
-                <div class="coffee-card" data-type="cappuccino"><img src="https://main-cdn.sbermegamarket.ru/mid9/hlr-system/-18/777/099/191/511/50/100074693799b0.jpg" alt="Cappuccino 8"><h2>Nutty Cappuccino</h2><p>Капучино • 108 ₽</p></div>
-                <div class="coffee-card" data-type="cappuccino"><img src="https://cdn.lifehacker.ru/wp-content/uploads/2025/10/IMG_4654_1760428987-e1760429013835.jpg" alt="Cappuccino 9"><h2>Spiced Cappuccino</h2><p>Капучино • 104 ₽</p></div>
-                <div class="coffee-card" data-type="cappuccino"><img src="https://i.pinimg.com/originals/b3/02/07/b3020720caef3e806115c550dc77ce03.webp" alt="Cappuccino 10"><h2>Espresso Cloud</h2><p>Капучино • 113 ₽</p></div>
+            <div class="page" id="detailPage" style="display: none;">
+                <button class="back-btn" id="backBtn">← Назад</button>
+                <div class="detail-container">
+                    <div class="detail-image">
+                        <img id="detailImg" src="" alt="Напиток" />
+                    </div>
+                    <div class="detail-options">
+                        <h2 id="detailName"></h2>
+                        <p>Базовая цена: <span id="basePrice"></span> ₽</p>
 
-                <div class="coffee-card" data-type="raf"><img src="https://jz9czo0xs6.ru.scalesta-cdn.com/CZbcl_YPJ1oiQt01-pvrlur0Eus=/filters:format(webp)/https%3A%2F%2Fcomplexbar.ru%2Fimages%2Fblog%2F266%2FChai_latte.jpg" alt="Raf 7"><h2>Lavender Raf</h2><p>Раф • 127 ₽</p></div>
-                <div class="coffee-card" data-type="raf"><img src="https://www.pahlavaperm.ru/content/files/catalog1/source/13_ICE_raf_klubnichnyj_1682452906.jpg" alt="Raf 8"><h2>Maple Raf</h2><p>Раф • 129 ₽</p></div>
-                <div class="coffee-card" data-type="raf"><img src="https://мояоптима.рф/upload/resize_cache/iblock/fa2/430_430_1/ny7va14nsclskg4zey2rqlhzwpgth9xk.jpg" alt="Raf 9"><h2>Нескафе Raf</h2><p>Раф • 124 ₽</p></div>
-                <div class="coffee-card" data-type="raf"><img src="https://tykva-cafe.ru/wp-content/uploads/2022/10/raf-kofe.jpg" alt="Raf 10"><h2>Dark Chocolate Raf</h2><p>Раф • 132 ₽</p></div>
+                        <div class="option-group">
+                            <h3>Размер</h3>
+                            <div class="options" id="sizeOptions">
+                                <div class="option-btn active" data-value="200">200 мл</div>
+                                <div class="option-btn" data-value="300">300 мл</div>
+                                <div class="option-btn" data-value="400">400 мл</div>
+                            </div>
+                        </div>
 
-              
-                <div class="coffee-card" data-type="mokkachino"><img src="https://i.pinimg.com/originals/3d/12/79/3d1279c41301962c892f909529e82a82.jpg" alt="mokkachino 7"><h2>Blueberry Macciato</h2><p>Макиато • 119 ₽</p></div>
-                <div class="coffee-card" data-type="mokkachino"><img src="https://coffeesolo.ru/wp-content/uploads/2022/12/44301-768x768.png" alt="mokkachino 8"><h2>Maple Drizzle</h2><p>Макиато • 121 ₽</p></div>
-                <div class="coffee-card" data-type="mokkachino"><img src="https://static.vinwonders.com/production/Vietnamese-coffee-beans-5.jpg" alt="mokkachino 9"><h2>Sea Salt Caramel</h2><p>Макиато • 123 ₽</p></div>
-                <div class="coffee-card" data-type="mokkachino"><img src="https://img.ixbt.site/live/images/original/32/75/48/2024/10/17/a30670d324.jpg" alt="mokkachino10"><h2>White Chocolate</h2><p>Макиато • 125 ₽</p></div>
+                        <div class="option-group">
+                            <h3>Молоко</h3>
+                            <div class="options" id="milkOptions">
+                                <div class="option-btn active" data-value="whole">Обычное</div>
+                                <div class="option-btn" data-value="oat">Овсяное</div>
+                                <div class="option-btn" data-value="almond">Миндальное</div>
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <h3>Сахар</h3>
+                            <div class="options" id="sugarOptions">
+                                <div class="option-btn active" data-value="0">Без сахара</div>
+                                <div class="option-btn" data-value="1">1 ложка</div>
+                                <div class="option-btn" data-value="2">2 ложки</div>
+                            </div>
+                        </div>
+
+                        <div class="quantity-control">
+                            <button id="decQty">−</button>
+                            <span id="qtyDisplay">1</span>
+                            <button id="incQty">+</button>
+                        </div>
+
+                        <p class="total-price">
+                            Итого: <strong id="totalDetailPrice">0</strong> ₽
+                        </p>
+
+                        <button class="add-to-cart" id="addToCartBtn">Добавить в корзину</button>
+                    </div>
+                </div>
             </div>
         </main>
+
+        <div class="cart-sidebar" id="cartSidebar">
+            <h3>Ваш заказ</h3>
+            <div id="cartItems"></div>
+            <p class="cart-total">Итого: <strong id="cartTotal">0 ₽</strong></p>
+            <button id="checkoutBtn">Оплатить</button>
+            <button id="closeCart">Закрыть</button>
+        </div>
     </div>
+    <script src="code.js"></script>
 </body>
-<script src="code.js"></script>
 </html>
