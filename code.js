@@ -5,6 +5,7 @@ const priceModifiers = {
 };
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let detailQty = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu-item');
@@ -38,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (qty > 1) qty--;
             controls.querySelector('.qty-value').textContent = qty;
         });
-
         controls.querySelector('.inc').addEventListener('click', (e) => {
             e.stopPropagation();
             qty++;
             controls.querySelector('.qty-value').textContent = qty;
         });
 
+    
         controls.querySelector('.choose-btn').addEventListener('click', (e) => {
             e.stopPropagation();
             const drink = {
@@ -54,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 img: card.querySelector('img').src
             };
             localStorage.setItem('selectedDrink', JSON.stringify(drink));
-            localStorage.setItem('selectedQty', qty);
-            showDetailPage(drink, qty);
+            localStorage.setItem('selectedQty', qty); 
+            showDetailPage(drink, qty);            
         });
     });
 
@@ -74,9 +75,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = e.target.value.toLowerCase();
         coffeeCards.forEach(card => {
             const name = card.querySelector('h2').textContent.toLowerCase();
-            card.style.display = name.includes(query) ? 'block' : 'none';
+            const type = card.dataset.type.toLowerCase();
+            let matchesType = false;
+
+            if (type === 'latte') matchesType = query.includes('latte') || query.includes('латте') || query.includes('ла');
+            else if (type === 'espresso') matchesType = query.includes('espresso') || query.includes('эспрессо') || query.includes('эс');
+            else if (type === 'cappuccino') matchesType = query.includes('cappuccino') || query.includes('капучино') || query.includes('cap');
+            else if (type === 'raf') matchesType = query.includes('raf') || query.includes('раф');
+            else if (type === 'mokkachino') matchesType = query.includes('mokkachino') || query.includes('макк') || query.includes('mokka');
+
+            card.style.display = (name.includes(query) || matchesType || query === '') ? 'block' : 'none';
         });
     });
+
     document.getElementById('cartBtn').addEventListener('click', () => {
         document.getElementById('cartSidebar').classList.add('open');
         renderCart();
@@ -96,12 +107,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('backBtn').addEventListener('click', () => {
         document.getElementById('detailPage').style.display = 'none';
-        document.getElementById('listPage').style.display = 'block'
+        document.getElementById('listPage').style.display = 'block';
         document.querySelectorAll('.qty-value').forEach(el => el.textContent = '1');
+        detailQty = 1;
     });
+ 
+    document.getElementById('incQty').addEventListener('click', () => {
+        detailQty++;
+        document.getElementById('qtyDisplay').textContent = detailQty;
+        const drink = JSON.parse(localStorage.getItem('selectedDrink'));
+        updateDetailPrice(drink.basePrice, detailQty);
+    });
+
+    document.getElementById('decQty').addEventListener('click', () => {
+        if (detailQty > 1) {
+            detailQty--;
+            document.getElementById('qtyDisplay').textContent = detailQty;
+            const drink = JSON.parse(localStorage.getItem('selectedDrink'));
+            updateDetailPrice(drink.basePrice, detailQty);
+        }
+    });
+
     document.getElementById('addToCartBtn').addEventListener('click', () => {
         const drink = JSON.parse(localStorage.getItem('selectedDrink'));
-        const qty = parseInt(localStorage.getItem('selectedQty'));
+        const qty = detailQty;
         const size = document.querySelector('#sizeOptions .option-btn.active').dataset.value;
         const milk = document.querySelector('#milkOptions .option-btn.active').dataset.value;
         const sugar = document.querySelector('#sugarOptions .option-btn.active').dataset.value;
@@ -144,8 +173,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartBadge();
         document.getElementById('cartSidebar').classList.remove('open');
     });
+
     updateCartBadge();
 });
+
 
 function showDetailPage(drink, qty) {
     document.getElementById('listPage').style.display = 'none';
@@ -155,6 +186,7 @@ function showDetailPage(drink, qty) {
     document.getElementById('basePrice').textContent = drink.basePrice;
     document.getElementById('detailImg').src = drink.img;
     document.getElementById('qtyDisplay').textContent = qty;
+    detailQty = qty; 
 
     document.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelector(`[data-value="200"]`).classList.add('active');
@@ -173,7 +205,6 @@ function updateDetailPrice(basePrice, qty) {
 
     document.getElementById('totalDetailPrice').textContent = total;
 }
-
 document.querySelectorAll('.option-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const group = btn.closest('.options');
@@ -181,8 +212,7 @@ document.querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.add('active');
 
         const drink = JSON.parse(localStorage.getItem('selectedDrink'));
-        const qty = parseInt(localStorage.getItem('selectedQty'));
-        updateDetailPrice(drink.basePrice, qty);
+        updateDetailPrice(drink.basePrice, detailQty);
     });
 });
 

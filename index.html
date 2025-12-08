@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Кофе на любой вкус</title>
     <link rel="stylesheet" href="style.css" />
-   
+    <link rel="icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>" type="image/svg+xml" />
 </head>
 <body>
     <div class="app-container">
         <header class="top-bar">
-    <div style="width: 120px;"></div> 
-    <input type="text" id="searchInput" placeholder="Найти напиток..." />
-    <div class="cart-btn" id="cartBtn">🛒 <span id="cartBadge">0</span></div>
-</header>
+            <div style="width: 120px;"></div>
+            <input type="text" id="searchInput" placeholder="Найти напиток..." />
+            <div class="cart-btn" id="cartBtn">🛒 <span id="cartBadge">0</span></div>
+        </header>
         <aside class="sidebar">
             <div class="menu-item active" data-type="all">Все</div>
             <div class="menu-item" data-type="espresso">Эспрессо</div>
@@ -25,6 +25,7 @@
 
         <main class="main-content">
             <div class="page" id="listPage">
+                <div class="coffee-grid">
                     <div class="coffee-card" data-type="espresso"><img src="https://media.timeout.com/images/103603109/750/422/image.jpg" alt="Classic Espresso"><h2>Classic Espresso</h2><p>Эспрессо • 85 ₽</p></div>
                     <div class="coffee-card" data-type="espresso"><img src="https://o.quizlet.com/1GIdEHyhoCVC11n8OlopDQ.jpg" alt="Double Shot"><h2>Double Shot</h2><p>Эспрессо • 90 ₽</p></div>
                     <div class="coffee-card" data-type="espresso"><img src="https://yaart-web-alice-images.s3.yandex.net/0b000efad3c811f0b682461306501bff:1" alt="Lemon Espresso"><h2>Lemon Espresso</h2><p>Эспрессо • 88 ₽</p></div>
@@ -50,7 +51,6 @@
                     <div class="coffee-card" data-type="mokkachino"><img src="https://img.ixbt.site/live/images/original/32/75/48/2024/10/17/a30670d324.jpg" alt="White Chocolate"><h2>White Chocolate</h2><p>Макиато • 125 ₽</p></div>
                 </div>
             </div>
-
             <div class="page" id="detailPage" style="display: none;">
                 <button class="back-btn" id="backBtn">← Назад</button>
                 <div class="detail-container">
@@ -103,7 +103,6 @@
                 </div>
             </div>
         </main>
-
         <div class="cart-sidebar" id="cartSidebar">
             <h3>Ваш заказ</h3>
             <div id="cartItems"></div>

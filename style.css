@@ -26,14 +26,10 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: white;    color: #333;
+    background: white;
+    color: #333;
     z-index: 10;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo {
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .top-bar input {
@@ -97,7 +93,6 @@ body {
     color: #5d4037;
 }
 
-
 .main-content {
     margin-left: 100px;
     padding: 20px;
@@ -144,37 +139,40 @@ body {
     font-size: 0.95rem;
 }
 
-.qty-controls {
+.drink-controls {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 10px 0;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
 }
 
-.qty-controls button {
+.qty-btn {
     width: 30px;
     height: 30px;
     border: 1px solid #ccc;
-    border-radius: 50%;
     background: white;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 16px;
-}
-
-.qty-controls span {
-    min-width: 25px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .choose-btn {
-    margin-top: 10px;
-    padding: 8px;
+    margin-left: 10px;
+    padding: 5px 12px;
     background: #5d4037;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    width: 100%;
+    font-size: 14px;
+}
+
+.choose-btn:hover {
+    background: #795548;
 }
 
 .back-btn {
@@ -185,8 +183,8 @@ body {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
-
 .detail-container {
     display: flex;
     gap: 30px;
@@ -265,6 +263,7 @@ body {
     font-size: 1.1rem;
     cursor: pointer;
 }
+
 .cart-sidebar {
     position: fixed;
     top: 0;
@@ -384,23 +383,17 @@ body {
         gap: 10px;
     }
 
-    .search-box input {
+    .top-bar input {
         width: 100%;
         max-width: 300px;
-    }
-
-    .detail-container {
-        flex-direction: column;
-        align-items: center;
     }
 
     .coffee-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-}
 
-@media (max-width: 380px) {
-    .coffee-grid {
-        grid-template-columns: 1fr;
+    .detail-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
